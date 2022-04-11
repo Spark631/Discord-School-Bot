@@ -14,7 +14,6 @@ discord_token = os.getenv("TOKEN")
 user_ID = os.getenv("USER")
 twitter_ID = os.getenv("TWITTER") 
 
-
 checker = []
 key_words = ["closed", "two hours", "canceled", "virtual", "weather", "release"]
 
@@ -22,7 +21,6 @@ game = discord.Game("At your service")
 class MyClient(discord.Client):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-
         self.bg_task = self.loop.create_task(self.my_background_task())
 
     async def on_ready(self):
@@ -47,7 +45,6 @@ class MyClient(discord.Client):
                     await channel.send(link["url"])
                     checker.append(link["url"])
             await asyncio.sleep(20)
-
 
 intents = discord.Intents.default()
 intents.members = True
